@@ -25,19 +25,22 @@ export class TodoItem extends Component {
         }
     }
     //markComplete is a method
-    markComplete = (e) =>{
-        console.log(this.props)
-    }
+    //takes in event parameter
+    
     
     render() {
+        const{id,title} = this.props.todoVariable;
         return (
             //or {backgroundColor: '#FFFF00'}
             //each to do item will have this background in background
             <div style = {this.getStyle()}> 
           
-                <p>  <input type = 'checkbox' onChange={this.props.markComplete.bind(this)} />
+                <p>  <input type = 'checkbox' onChange={this.props.markComplete.bind(
+                    this,id) } />
                 {' '}
-                {this.props.todoVariable.title}
+                {title}
+                <button onClick = {this.props.deleteTodo.bind(this,id)}
+                        style={btnStyle}> X </button>
                 </p>
             </div>
         )
@@ -45,6 +48,15 @@ export class TodoItem extends Component {
 }
 TodoItem.propTypes = {
     todoVariable: PropTypes.object.isRequired
+}
+const btnStyle ={
+    background: '#ff0000',
+    color: '#fff',
+    border:'none',
+    padding:'5px 10px',
+    borderRadius:'50%',
+    cursor:'pointer',
+    float:'right'
 }
 
 export default TodoItem

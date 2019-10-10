@@ -1,6 +1,9 @@
 import React ,{Component} from 'react';
+import Header from './components/layout/Header';
 import './App.css';
-import Todos from './components/Todos'
+import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
+
 class App extends Component{
   //states
   state = {
@@ -16,7 +19,7 @@ class App extends Component{
         
         id: 2,
         title:'Dinner',
-        completed: true
+        completed: false
 
       },
       {
@@ -29,17 +32,29 @@ class App extends Component{
 //to access state this.state.whatever
     ]
   }
-  markComplete = () =>{
+  markComplete = (id) =>{
 //to test console.log
-  
+this.setState({todos: this.state.todos.map(todo =>{
+  if(todo.id === id){
+    todo.completed = !todo.completed //whatever the opposite is
+  }
+  return todo;
+})})
+  }
+  deleteTodo = (id) =>{
+    //to test 
+    //console.log(id)
+    this.setState({todos: [...this.state.todos.filter(todo => todo.id !== id )]})
   }
   render(){
    // console.log(this.state.todos);
    //pass array as property 
    return (
       <div className="App">
-        
-        <Todos todos = {this.state.todos} markCompelete={this.markCompelete}/>
+        <Header/>
+        <AddTodo/>
+        <Todos todos = {this.state.todos} markComplete={this.markComplete}
+        deleteTodo = {this.deleteTodo}/>
       </div>
     )
   }
