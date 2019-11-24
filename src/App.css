@@ -6,9 +6,26 @@
 body{
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
+  color: #9e8702;
+  background: #fffd8e;
+  
+}
+
+.container{
+  padding: 0 0.5rem;
+}
+.btn{
+  display: inline-block;
+  border: solid;
+  border-color: #ffe02e;
+  background: #fffd8e;
+  padding: 7px 20px;
+  cursor: pointer;
+  color: #cfc800;
 
 }
-a{
-  color: #143;
-  text-decoration: magenta;
+.btn:hover{
+  text-transform: uppercase;
+  color: #9e8702;
+  transition: color 650ms ease-out;
 }
