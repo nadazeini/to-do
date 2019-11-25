@@ -1,4 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Video Walkthrough
+<img src='http://g.recordit.co/6i7ofRUmxZ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Available Scripts
 
